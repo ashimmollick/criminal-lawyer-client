@@ -1,0 +1,17 @@
+[
+    {
+        "catagory_id": "01",
+        "catagory_name": "Apple Headphone",
+        "img": "https://i.ibb.co/SKM3Gs6/img-5.jpg"
+    },
+    {
+        "catagory_id": "02",
+        "catagory_name": "Wirless Headphone",
+        "img": "https://i.ibb.co/SKM3Gs6/img-5.jpg"
+    },
+    {
+        "catagory_id": "03",
+        "catagory_name": "On-ear-wired",
+        "img": "https://i.ibb.co/SKM3Gs6/img-5.jpg"
+    }
+]

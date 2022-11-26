@@ -10,7 +10,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="text-center  lg:text-left">
-                    <h3 className="text-2xl text-[#f472b6]">About Headphones</h3>
+                    <h3 className="text-2xl text-[#65258A]">About Headphones</h3>
                     <h2 className="text-5xl font-semibold leading-tight">Awesome digital headphones can make your life easier</h2>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     <ul className="steps steps-vertical ">

@@ -1,37 +1,50 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../../contexts/AuthProvider';
+import { Result } from 'postcss';
+import { GoogleAuthProvider } from 'firebase/auth';
+
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     // const { signIn } = useContext(AuthContext);
-    // const [loginError, setLoginError] = useState('');
+    const { signIn, providerLogin } = useContext(AuthContext)
+    const [loginError, setLoginError] = useState('');
 
-    // const location = useLocation();
-    // const navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     // const [logingUserEmail, setLogingUserEmail] = useState('')
     // const [token] = useToken(logingUserEmail)
 
 
-    // const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/';
     // if (token) {
-    //     navigate(from, { replace: true });
+    // navigate(from, { replace: true });
     // }
     const handleLogin = data => {
         console.log(data);
-        // setLoginError('');
-        // signIn(data.email, data.password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         setLogingUserEmail(data.email)
-
-        //     })
-        //     .catch(error => {
-        //         console.log(error.message)
-        //         setLoginError(error.message);
-        //     });
+        setLoginError('')
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                navigate(from, { replace: true });
+            })
+            .catch(err => {
+                setLoginError(err.message)
+            }
+            )
+    }
+    const googleProvider = new GoogleAuthProvider()
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(resulte => {
+                const user = resulte.user;
+                console.log(user)
+            })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -61,12 +74,12 @@ const Login = () => {
                     </div>
                     <input className='btn btn-accent w-full' value="Login" type="submit" />
                     <div>
-                        {/* {loginError && <p className='text-red-600'>{loginError}</p>} */}
+                        {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
                 <p>New to Doctors Portal <Link className='text-secondary' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleSignIn} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );

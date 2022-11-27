@@ -1,0 +1,58 @@
+[
+    {
+        "catagory_id": "01",
+        "title": "AirPods",
+        "img": "https://i.ibb.co/XSNxTzB/car-1.jpg",
+        "description": "Covered in a special acoustic mesh, an inset microphone in each earbud minimizes wind noise when you’re on a call — so your voice is always heard loud and clear.",
+        "price": "249"
+    },
+    {
+        "catagory_id": "01",
+        "title": "AirPods Max",
+        "img": "https://i.ibb.co/T2dLMbB/41-pk-Mh-Cwl-S-SY300-SX300.jpg",
+        "description": "Introducing AirPods Max — a perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate personal listening experience is here.",
+        "price": "689"
+    },
+    {
+        "catagory_id": "02",
+        "title": "SANNO WORLD SH-12",
+        "img": "https://i.ibb.co/mD5rKFk/product-5.jpg",
+        "description": "On Ear Bluetooth Headphones A nicely fitted pair of over-ear headphones that covers your whole ear is just incredibly comfortable. They also generally benefit from much larger drivers.",
+        "price": "150"
+    },
+    {
+        "catagory_id": "02",
+        "title": "Garwin L21",
+        "img": "https://i.ibb.co/jZ48Fmq/tws-l21-smart-earbuds-airfit-original-imafuxyvysnzuzzy.jpg",
+        "description": "On Ear Bluetooth Headphones A nicely fitted pair of over-ear headphones that covers your whole ear is just incredibly comfortable. They also generally benefit from much larger drivers.",
+        "price": "219"
+    },
+    {
+        "catagory_id": "02",
+        "title": "Tunifi Earbuds M19",
+        "img": "https://i.ibb.co/s1LcBLR/earbuds-m195.webp",
+        "description": "TUNIFI M19 Wireless Bluetooth v5.1 Headset. It’s time to take your music-listening experience with high-capability 2000mAh rechargeable lithium polymer battery with 1hours of charging time that will allow you to listen ",
+        "price": "380"
+    },
+    {
+        "catagory_id": "03",
+        "title": "Tunifi Wired M19",
+        "img": "https://i.ibb.co/tJ1Fp4R/headphones-img-3.jpg",
+        "description": "TUNIFI M19 Wireless Bluetooth v5.1 Headset. It’s time to take your music-listening experience with high-capability 2000mAh rechargeable lithium polymer battery with 1hours of charging time that will allow you to listen ",
+        "price": "210"
+    },
+    {
+        "catagory_id": "03",
+        "title": "UiiSii HM12",
+        "img": "https://i.ibb.co/Srjs0Sj/product-6.jpg",
+        "description": "Aheadsetis a hardware device that connects to a telephone or computer, allowing the user to talk and listen while keeping their hands free. Headsets are commonly used in technical support and customer service centers",
+        "price": "79"
+    },
+    {
+        "catagory_id": "03",
+        "title": "UiiSii GF2",
+        "img": "https://i.ibb.co/swg5vTW/product-2.jpg",
+        "description": "Aheadsetis a hardware device that connects to a telephone or computer, allowing the user to talk and listen while keeping their hands free. Headsets are commonly used in technical support and customer service centers",
+        "price": "79"
+    }
+]

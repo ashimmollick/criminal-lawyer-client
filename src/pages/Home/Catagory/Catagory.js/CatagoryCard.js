@@ -5,7 +5,9 @@ import Orders from '../Orders';
 
 const CatagoryCard = () => {
     const orders = useLoaderData();
+
     const [orderConfirm, setOrderConfirm] = useState([])
+
     return (
         <div className=''>
             <h2 className="text-4xl text-center pt-8">My Products</h2>
@@ -17,9 +19,12 @@ const CatagoryCard = () => {
                         setOrderConfirm={setOrderConfirm}
                     ></Orders>)
                 }
-                <OrderConfirm
-                    orderConfirm={orderConfirm}
-                ></OrderConfirm>
+                {orderConfirm &&
+                    <OrderConfirm
+                        orderConfirm={orderConfirm}
+                        setOrderConfirm={setOrderConfirm}
+                    ></OrderConfirm>
+                }
             </div>
         </div>
     );

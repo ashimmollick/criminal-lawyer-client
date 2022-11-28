@@ -18,7 +18,7 @@ const Orders = ({ order, setOrderConfirm }) => {
                 <h2 className="card-title text-[#65258A] text-4xl font-bold">
                     {title}
                 </h2>
-                <h3 className="text-3xl font-semibold text-red-500"> $ {price}</h3>
+                <h3 className="text-3xl font-semibold text-red-500">Price: $ {price}</h3>
                 <p>{description}</p>
                 <div className='mx-auto '>
                     <label onClick={() => setOrderConfirm(order)} htmlFor="order-modal" className="btn mt-3 text-xl font-semibold btn-wide bg-[#65258A] hover:bg-[#65258A]">Order</label>

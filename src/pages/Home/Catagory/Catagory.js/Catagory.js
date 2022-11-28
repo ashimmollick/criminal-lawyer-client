@@ -25,7 +25,8 @@ const Catagory = () => {
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6'>
                 {
                     catagorys.map(catagory =>
-                        <div className="card  shadow-xl">
+                        <div className="card  shadow-xl" >
+
                             <figure><img className='w-96 h-80' src={catagory.img} alt="Shoes" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{catagory.catagory_name}</h2>
@@ -34,7 +35,9 @@ const Catagory = () => {
                                     <Link to={`/catagories/${catagory.catagory_id}`}><button className="btn btn-primary">Buy Now</button></Link>
                                 </div>
                             </div>
-                        </div>)
+                        </div>
+
+                    )
                 }
 
             </div>

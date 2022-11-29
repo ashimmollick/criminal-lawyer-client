@@ -5,34 +5,56 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
+
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser, providerLogin } = useContext(AuthContext)
     const [signUpError, setSignUPError] = useState('')
     const navigate = useNavigate();
+
     const handleSignUp = data => {
-        console.log(data)
+
         setSignUPError('');
+
         createUser(data.email, data.password)
             .then(result => {
-                const user = result.user
-                console.log(user)
+
+
                 toast('User Created Successfully.')
                 const userInfo = {
-                    displayName: data.name
+                    displayName: data.name,
+                    roleDisplay: data.slot
                 }
-                updateUser(userInfo)
+
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/')
+                        saveUser(data.name, data.email, data.slot)
                     })
                     .catch(err => console.log(err));
 
             })
             .catch(error => {
-                console.log(error)
+
                 setSignUPError(error.message)
             });
+    }
+    const saveUser = (name, email, role) => {
+        const user = { name, email, role }
+
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                navigate('/')
+            })
+
+
     }
     const googleProvider = new GoogleAuthProvider()
     const handleGoogleSignIn = () => {
@@ -40,9 +62,12 @@ const SignUp = () => {
             .then(resulte => {
                 const user = resulte.user;
                 console.log(user)
+                toast('User Created Successfully.')
+
             })
             .catch(error => console.error(error))
     }
+
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
@@ -70,6 +95,16 @@ const SignUp = () => {
                             pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters' }
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+                    </div>
+
+                    <div>
+                        <label className="label"> <span className="label-text">Typle of Catagory</span></label>
+                        <select  {...register("slot", {
+                            required: (true, " Plase Selet Catagory")
+                        })} className="select select-bordered select-sm w-full max-w-xs">
+                            <option>Seller</option>
+                            <option>Buyer</option>
+                        </select>
                     </div>
                     <input className='btn btn-accent w-full mt-4' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}

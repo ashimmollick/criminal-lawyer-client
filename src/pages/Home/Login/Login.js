@@ -2,40 +2,41 @@ import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../../contexts/AuthProvider';
-import { Result } from 'postcss';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useToken from '../../../hooks/useToken';
+
 
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    // const { signIn } = useContext(AuthContext);
-    const { signIn, providerLogin } = useContext(AuthContext)
+    const { signIn, providerLogin } = useContext(AuthContext);
     const [loginError, setLoginError] = useState('');
 
     const location = useLocation();
     const navigate = useNavigate();
 
-    // const [logingUserEmail, setLogingUserEmail] = useState('')
-    // const [token] = useToken(logingUserEmail)
+    const [logingUserEmail, setLogingUserEmail] = useState('')
+    const [token] = useToken(logingUserEmail)
 
 
     const from = location.state?.from?.pathname || '/';
-    // if (token) {
-    // navigate(from, { replace: true });
-    // }
+    if (token) {
+        navigate(from, { replace: true });
+    }
     const handleLogin = data => {
         console.log(data);
-        setLoginError('')
+        setLoginError('');
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
-                navigate(from, { replace: true });
+                console.log(user);
+                setLogingUserEmail(data.email)
+
             })
-            .catch(err => {
-                setLoginError(err.message)
-            }
-            )
+            .catch(error => {
+                console.log(error.message)
+                setLoginError(error.message);
+            });
     }
     const googleProvider = new GoogleAuthProvider()
     const handleGoogleSignIn = () => {

@@ -4,6 +4,7 @@ import Main from "../../Layout/Main";
 import Blog from "../../pages/Blog/Blog";
 
 import MyOrders from "../../pages/Dashboard/MyOrder/MyOrders";
+import AllBuyer from "../../pages/Home/Catagory/AllBuyer/Allbuyer";
 import AllSeler from "../../pages/Home/Catagory/Allseller/AllSeler";
 import AllUsers from "../../pages/Home/Catagory/AllUsers/AllUsers";
 import CatagoryCard from "../../pages/Home/Catagory/Catagory.js/CatagoryCard";
@@ -56,6 +57,16 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/allusers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+
+                path: '/dashboard/allseller',
+                element: <AdminRoute><AllSeler></AllSeler></AdminRoute>
+            },
+            {
+
+                path: '/dashboard/allbuyer',
+                element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
             },
             {
 

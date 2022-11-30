@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
 
-const AllSeler = () => {
+const AllBuyer = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -45,7 +45,7 @@ const AllSeler = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, i) => user.role === 'Buyer' &&
+                            users.map((user, i) => user.role === 'Seller' &&
                                 <>
                                     <tr key={user._id}>
                                         <th>{i + 1}</th>
@@ -70,4 +70,4 @@ const AllSeler = () => {
     );
 };
 
-export default AllSeler;
+export default AllBuyer;

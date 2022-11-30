@@ -37,7 +37,7 @@ const router = createBrowserRouter([
             {
                 path: '/catagories/:id',
                 element: <PrivateRoute><CatagoryCard></CatagoryCard></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/catagoryss/${params.id}`)
+                loader: ({ params }) => fetch(`https://headphone-relast-server.vercel.app/catagoryss/${params.id}`)
             },
             {
                 path: '/blog',

@@ -30,7 +30,7 @@ const OrderConfirm = ({ orderConfirm, setOrderConfirm }) => {
             price: price
 
         }
-        fetch('http://localhost:5000/orders', {
+        fetch('https://headphone-relast-server.vercel.app/orders', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

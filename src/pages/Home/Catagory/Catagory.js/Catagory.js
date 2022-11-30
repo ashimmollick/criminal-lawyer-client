@@ -32,7 +32,7 @@ const Catagory = () => {
                                 <h2 className="card-title">{catagory.catagory_name}</h2>
 
                                 <div className="card-actions justify-end">
-                                    <Link to={`/catagories/${catagory.catagory_id}`}><button className="btn btn-primary">Buy Now</button></Link>
+                                    <Link to={`/catagories/${catagory.catagory_id}`}><button className="btn btn-primary">Go Product</button></Link>
                                 </div>
                             </div>
                         </div>

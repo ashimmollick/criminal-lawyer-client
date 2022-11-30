@@ -58,6 +58,7 @@ const SignUp = () => {
             .then(res => res.json())
             .then(data => {
                 setCreateUserEmail(email)
+
             })
 
 
@@ -68,6 +69,7 @@ const SignUp = () => {
             .then(resulte => {
                 const user = resulte.user;
                 console.log(user)
+
                 toast('User Created Successfully.')
 
             })

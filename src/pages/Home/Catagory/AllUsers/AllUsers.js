@@ -40,7 +40,7 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Admin</th>
+                            <th>Type</th>
                             <th>Delete</th>
                         </tr>
                     </thead>

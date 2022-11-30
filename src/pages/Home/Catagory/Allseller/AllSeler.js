@@ -2,8 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
 
-
-const AllUsers = () => {
+const AllSeler = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -15,7 +14,7 @@ const AllUsers = () => {
         }
     })
     const handleDeleteUser = user => {
-        fetch(`http://localhost:5000/users/${user._id}`, {
+        fetch(`http://localhost:5000/sellers/${user._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -25,7 +24,7 @@ const AllUsers = () => {
             .then(data => {
                 console.log(data)
                 refetch()
-                toast.success(`Doctor ${user.name} deleted successfully`)
+                toast.success(` ${user.name} deleted successfully`)
 
             })
     }
@@ -40,25 +39,28 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Admin</th>
+                            <th>Buyer</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            users.map((user, i) =>
-                                <tr key={user._id}>
-                                    <th>{i + 1}</th>
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
-                                    <td>{user.role}</td>
-                                    <td>
-                                        {user?.role !== 'admin' ? <button onClick={() => handleDeleteUser(user)} className='btn btn-xs btn-denger'>Dlete</button>
-                                            :
-                                            <button disabled className='btn btn-xs btn-denger'>Dlete</button>
-                                        }
-                                    </td>
-                                </tr>
+                            users.map((user, i) => user.role === 'Buyer' &&
+                                <>
+                                    <tr key={user._id}>
+                                        <th>{i + 1}</th>
+                                        <td>{user.name}</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.role}</td>
+                                        <td>
+                                            {user?.role !== 'admin' ? <button onClick={() => handleDeleteUser(user)} className='btn btn-xs btn-denger'>Dlete</button>
+                                                :
+                                                <button disabled className='btn btn-xs btn-denger'>Dlete</button>
+                                            }
+                                        </td>
+                                    </tr>
+                                </>
+
                             )
                         }
                     </tbody>
@@ -68,4 +70,4 @@ const AllUsers = () => {
     );
 };
 
-export default AllUsers;
+export default AllSeler;

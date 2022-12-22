@@ -66,12 +66,12 @@ const router = createBrowserRouter([
             {
 
                 path: '/dashboard/allbuyer',
-                element: <AdminRoute><AllBuyer></AllBuyer></AdminRoute>
+                element: <AllBuyer></AllBuyer>
             },
             {
 
                 path: '/dashboard/allseller',
-                element: <SellerRoute><AllSeler></AllSeler></SellerRoute>
+                element: <AllSeler></AllSeler>
             }
         ]
     }
